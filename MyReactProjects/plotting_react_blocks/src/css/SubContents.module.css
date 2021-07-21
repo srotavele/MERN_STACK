@@ -1,0 +1,7 @@
+.SubContents {
+  flex: 1;
+  height: 200px;
+
+  background-color: yellow;
+  margin: 10px;
+}
