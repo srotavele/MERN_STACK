@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-// import {Router} from '@reach/router';
-import ProductForm from "../src/components/productForm";
+import {Router} from '@reach/router';
+import Home from "../src/components/home";
 import './App.css';
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
 
   return (
     <div>
-      {/* <Router> */}
-        <ProductForm />
-      {/* </Router> */}
+      <Router>
+        <Home path="/"/>
+      </Router>
     </div>
   );
 }
