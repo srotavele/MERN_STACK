@@ -8,8 +8,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 require('./config/mongoose.config');
-const product = require('./server/routes/products.routes')
-product(app); 
+const productRoutes = require('./routes/products.routes')
+productRoutes(app); 
 
 app.listen(port, () => console.log(`Express Listening on ${port}`) )
 
@@ -30,4 +30,3 @@ app.listen(port, () => console.log(`Express Listening on ${port}`) )
 
 
 
-app.listen(port, () => console.log(`Listening on port: ${port}`) );

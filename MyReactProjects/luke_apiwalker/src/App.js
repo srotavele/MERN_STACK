@@ -11,7 +11,7 @@ function App() {
         resource: "people",
         id: ""
     });
-    const [results, setResults] = useState({})
+const [results, setResults] = useState({})
 
 
     return (
