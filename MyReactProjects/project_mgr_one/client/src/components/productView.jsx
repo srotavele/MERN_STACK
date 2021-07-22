@@ -1,11 +1,11 @@
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 
 const ProductView = props =>{
     const {id} = props;
-    console.log(id)
+    // console.log(id)
     const [input, setInput] = useState({})
 
 
@@ -18,7 +18,14 @@ const ProductView = props =>{
             .catch(err => console.log(err))
     },[])
 
-
+    const handleDelete = id =>{
+        console.log("working???")
+        axios.delete(`http://localhost:8000/api/products/${id}`)
+        .then(res =>{
+            navigate("/")
+        })
+        .catch(err => console.log(err))
+    }
 
     return(
         <div>
@@ -27,7 +34,7 @@ const ProductView = props =>{
             <h3>Product: {input.title}</h3>
             <p>Price: {input.price}</p>
             <p>Description: {input.description}</p>
-            <button>Delete</button>
+            <button onClick={() => handleDelete(`${id}`)}>Delete</button>
         </div>
     )
 }
