@@ -15,3 +15,17 @@ module.exports.getAllProducts = (req, res) => {
         .then(allItems => {res.json({ allItems })})
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 };
+
+module.exports.getOneItem = (req, res) => {
+    const {product_id} = req.params
+	Product.findOne({ _id: product_id })
+		.then(getItem => res.json({ getItem }))
+		.catch(err => res.json({ message: "Something went wrong", error: err }));
+};
+
+module.exports.deleteOneItem = (req, res) => {
+    const {product_id} = req.params
+    Product.deleteOne({_id: product_id })
+      .then(deleteItem => res.json({ deleteItem }))
+      .catch(err => res.json({ message: "Something went wrong", error: err }));
+  };

@@ -6,11 +6,7 @@ import axios from 'axios';
 
 const ProductForm = props => {
     const {switchState, setSwitchState} = props;
-    const [formState, setFormState] = useState({
-        title:"",
-        price: 0,
-        description: ""
-    })
+    const {formState, setFormState} = props;
 
     const [validState, setValidState] = useState({})
 

@@ -4,12 +4,19 @@ import InventoryList from "../components/inventoryList";
 
 
 
+
 const Home = props => {
     const [switchState, setSwitchState]  = useState(true)
+    const [formState, setFormState] = useState({
+        id: "",
+        title:"",
+        price: 0,
+        description: ""
+    })
     return(
         <div>
-            <ProductForm switchState={switchState} setSwitchState={setSwitchState}/>
-            <InventoryList switchState={switchState}/>
+            <ProductForm formState={formState} setFormState={setFormState} switchState={switchState} setSwitchState={setSwitchState}/>
+            <InventoryList formState={formState} setFormState={setFormState} switchState={switchState} setSwitchState={setSwitchState}/>
         </div>
     )
 }
