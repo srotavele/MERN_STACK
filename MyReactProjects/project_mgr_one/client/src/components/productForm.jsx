@@ -38,20 +38,20 @@ const ProductForm = props => {
 
     return (
         <div >
-            <h2>Product Manager</h2><br/>
+            <h2>Create Stuff</h2><br/>
             <form onSubmit={onHandleSubmit}>
                 <p>
-                    <label>Title</label>
+                    <label>Title:</label>
                     <input type="text" name="title" onChange={handleChange} ></input><br/>
                     {(validState.title) ? <p style = {{color: "red"}}>{validState.title}</p>: null}
                 </p>
                 <p>
-                    <label>Price</label>
+                    <label>Price:</label>
                     <input type="number" name="price" onChange={handleChange} ></input><br/>
                     {(validState.price) ? <p style = {{color: "red"}}>{validState.price}</p>: null}
                 </p>
                 <p>
-                    <label>Description</label>
+                    <label>Description:</label>
                     <input type="text" name="description" onChange={handleChange} ></input><br/>
                     {(validState.description) ? <p style = {{color: "red"}}>{validState.description}</p>: null}
                 </p>

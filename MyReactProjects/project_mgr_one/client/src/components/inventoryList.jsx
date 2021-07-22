@@ -4,9 +4,10 @@ import axios from 'axios';
 
 
 const InventoryList = props => {
+    const {id} = props;
     const { switchState, setSwitchState } = props;
     const [inventoryState, setInventoryState] = useState([])
-   
+
     useEffect(() => {
         axios.get("http://localhost:8000/api/products")
             .then(res => setInventoryState(res.data.allItems))
@@ -40,7 +41,8 @@ const InventoryList = props => {
                                 <tr key={i}>
                                     <td>{product.title}</td>
                                     <td>
-                                        <Link to={`/products/${product._id}`}>View</Link>
+                                        <Link to={`/products/${product._id}`}>View</Link>||
+                                        <Link to={`products/${product._id}/edit`}>Edit</Link>||
                                         <button onClick={() => handleDelete(product._id)}>Delete</button>
                                     </td>
                                 </tr>

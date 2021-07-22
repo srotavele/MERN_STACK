@@ -8,7 +8,7 @@ import InventoryList from "../components/inventoryList";
 const Home = props => {
     const [switchState, setSwitchState]  = useState(true)
     const [formState, setFormState] = useState({
-        id: "",
+        // id: "",
         title:"",
         price: 0,
         description: ""
