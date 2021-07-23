@@ -12,7 +12,35 @@ module.exports.createAuthor =(req, res) => {
         .then(newAuthor => res.json(newAuthor))
         .catch(err => res.status(400).json(err))
 }
-// module.exports.getAll
-// module.exports.getOne
-// module.exports.update
-// module.exports.delete
+
+module.exports.getAllAuthors = (req,res) =>{
+    Author.find().sort({name: 'desc'})
+        .then(AllAuthors => res.json(AllAuthors))
+        .catch(err => res.json(err))
+}
+
+module.exports.editAuthor = (req,res) =>{
+    const {author_id} = req.params
+    Author.findOneAndUpdate({_id: author_id}, req.body, {new:true, runValidators:true})
+        .then(editAuthor => res.json(editAuthor))
+        .catch(err => res.status(400).json(err))
+}
+
+module.exports.getOneAuthor = (req,res) => {
+    const {author_id} = req.params
+    // console.log(author_id)
+    Author.findOne({_id: author_id})
+        .then(oneAuthor => {
+            console.log(oneAuthor)
+            res.json(oneAuthor)})
+        .catch(err => res.json(err))
+
+}
+
+module.exports.deleteAuthor = (req,res) =>{
+    const {author_id} = req.params
+    // console.log(author_id)
+    Author.deleteOne({_id: author_id})
+        .then(deleted => res.json(deleted))
+        .catch(err => res.json(err))
+}

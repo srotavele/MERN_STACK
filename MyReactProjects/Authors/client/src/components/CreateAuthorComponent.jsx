@@ -32,16 +32,17 @@ const CreateAuthor = props => {
 
     return (
         <div>
-            <Link to='/'>Home</Link>
+            <Link className='btn btn-link' to='/'>Home</Link>
+            <h6 className= 'lead'>Add a New Author:</h6>
             <form onSubmit={submitHandler}>
-                <p>
+                <p className= 'lead'>
                     Name:
                     <input type="text" name="name" onChange={e => setInput(e.target.value)} />
                     {(validState.name) ? <p style={{ color: "red" }}>{validState.name}</p> : null}
                 </p>
-                <button type="submit">Create</button>
+                <Link className='btn btn-primary' to='/'>Cancel</Link>|
+                <button className='btn btn-secondary' type="submit">Create</button>
             </form>
-            <button onClick={handleCancel}>Cancel</button>
         </div>
     )
 
