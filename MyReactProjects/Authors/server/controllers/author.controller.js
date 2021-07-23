@@ -14,7 +14,7 @@ module.exports.createAuthor =(req, res) => {
 }
 
 module.exports.getAllAuthors = (req,res) =>{
-    Author.find().sort({name: 'desc'})
+    Author.find().sort({name: 'asc'})
         .then(AllAuthors => res.json(AllAuthors))
         .catch(err => res.json(err))
 }
